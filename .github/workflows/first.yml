@@ -1,0 +1,22 @@
+name: GitHub Actions Demo
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  # schedule:
+  #   - cron: '15 6 * * SUN'
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show event
+        run: echo " Your event is ${{ github.event_name }}"
+      
+      - name: Show branch
+        run: echo "your branch is ${{ github.ref }}"
+      
+      - name: Show files
+        run: ls -r 
